@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ProductList } from "./components/product-list/product-list";
+import { ProductList } from './components/product-list/product-list';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ProductList],
+  imports: [ProductList],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   protected title = 'tspark-product-ui';
