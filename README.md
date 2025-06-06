@@ -36,6 +36,22 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
+## Docker Builds
+
+### Build the Docker image
+
+```bash
+docker build -t tspark-product-ui .
+```
+
+### Run the Docker mage
+
+```bash
+docker run -d -p 8080:80 --name product-ui tspark-product-ui
+```
+
+Now visit 👉 http://localhost:8080 to test your Angular app running with Node.js 20 build.
+
 ## Running unit tests
 
 To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
