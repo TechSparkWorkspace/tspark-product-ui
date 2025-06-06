@@ -1,0 +1,5 @@
+<div class="product" *ngFor="let product of products">
+  <h3>{{ product.name }}</h3>
+  <p>💲 {{ product.price }}</p>
+  <p>Status: <strong>{{ product.inStock ? 'In Stock' : 'Out of Stock' }}</strong></p>
+</div>
