@@ -36,22 +36,6 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Docker Builds
-
-### Build the Docker image
-
-```bash
-docker build -t tspark-product-ui .
-```
-
-### Run the Docker mage
-
-```bash
-docker run -d -p 8080:80 --name product-ui tspark-product-ui
-```
-
-Now visit 👉 http://localhost:8080 to test your Angular app running with Node.js 20 build.
-
 ## Running unit tests
 
 To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
@@ -69,6 +53,50 @@ ng e2e
 ```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Docker Builds
+
+### Build the Docker image
+
+```bash
+docker build -t tspark-product-ui .
+```
+
+### Run the Docker image
+
+```bash
+docker run -d -p 8080:8080 --name product-ui tspark-product-ui
+```
+
+Now visit 👉 http://localhost:8080 to test your Angular app running with Node.js 20 build.
+
+## Push the Image to Google Cloud Build & Container Registry
+
+### Submit Build to Cloud Build
+
+```bash
+gcloud builds submit --tag gcr.io/tspark-product-ui/tspark-product-ui
+```
+
+You can check the uploaded image at [Google Cloud Registry](https://console.cloud.google.com/artifacts)
+
+### Verify the Image in Container Registry
+
+```bash
+gcloud container images list
+```
+
+## Deploy to Cloud Run
+
+Run the below command to deploy the image to Google Cloud Run
+
+```bash
+gcloud run deploy tspark-product-ui \
+  --image gcr.io/tspark-product-ui/tspark-product-ui \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated
+```
 
 ## Additional Resources
 

@@ -13,4 +13,6 @@ RUN npm run build --prod
 # -------- Stage 2: Serve using Nginx --------
 FROM nginx:alpine
 COPY --from=build /app/dist/tspark-product-ui/browser /usr/share/nginx/html
-EXPOSE 80
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 8080
