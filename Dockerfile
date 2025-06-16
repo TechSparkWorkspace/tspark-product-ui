@@ -1,5 +1,5 @@
 # -------- Stage 1: Build Angular app --------
-FROM node:20 AS build
+FROM node:20.19 AS build
 
 WORKDIR /app
 # Copy entire Angular project into the container
@@ -7,7 +7,7 @@ COPY . .
 # Install dependencies  
 RUN npm install  
 # Build the Angular app for production
-RUN npm run build --prod 
+RUN npm run build:prod 
 
 
 # -------- Stage 2: Serve using Nginx --------
